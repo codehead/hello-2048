@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    options {
+        timestamps()
+        ansiColor('xterm')
+    }
 
     stages {
         stage('Build') {
@@ -9,7 +14,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker-compose up -d'
+                sh '''docker-compose up -d
+                docker-compose logs -t --tail=10 
+                '''
             }
         }
     
