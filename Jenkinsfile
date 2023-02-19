@@ -12,6 +12,11 @@ pipeline {
                 sh 'docker-compose build'
             }
         }
+        stage('Tag') {
+            steps {
+                echo 'Tag image, repo'
+            }
+        }
         stage('Deploy') {
             steps {
                 sh '''docker-compose up -d
