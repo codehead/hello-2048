@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Tag') {
             steps {
-                echo 'Tag image, repo'
+                echo 'Tag image, repo, done'
             }
         }
         stage('Deploy') {
